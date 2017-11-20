@@ -15,9 +15,15 @@ public class EnemyOne : MonoBehaviour {
     public float zMin;
     public float zMax;
 
+    public float life = 100f;
+    public float maxLife = 100f;
+
+    public Transform lifeBar;
+
+
 	// Use this for initialization
 	void Start () {
-        GetComponent<Rigidbody>().rotation = Quaternion.Euler(-90.0f, -180.0f, 0.0f);
+        GetComponent<Rigidbody>().rotation = Quaternion.Euler(270.0f, 180.0f, 0.0f);
     }
 	
 	// Update is called once per frame
@@ -38,8 +44,24 @@ public class EnemyOne : MonoBehaviour {
                      0.0f,
                       Mathf.Clamp (GetComponent<Rigidbody>().position.z, zMin,zMax)
                       );
-               GetComponent<Rigidbody>().rotation = Quaternion.Euler(90.0f, -180.0f, 0.0f);
+                GetComponent<Rigidbody>().rotation = Quaternion.Euler(270.0f, 180.0f, 0.0f);
+               // GetComponent<Rigidbody>().rotation = Quaternion.Euler(0f, 0.0f, 0.0f);
+
             }
         }
 	}
+
+    [PunRPC]
+    public void gethit (float getDamage) {
+        if (PhotonNetwork.isMasterClient) {
+            life -= getDamage;
+            if(life <= 0) {
+               PhotonNetwork.Instantiate("Explosion", new Vector3(this.transform.position.x, 0.0f, this.transform.position.z), Quaternion.identity, 0);
+                PhotonNetwork.Destroy(gameObject);
+            }
+        }
+
+        lifeBar = transform.Find("Health");
+        lifeBar.localScale = new Vector3(life / maxLife * 0.1f, 0.01f, 0.01f);
+    }
 }

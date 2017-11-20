@@ -260,8 +260,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seconds: 0
-  fireRate: 0.2
-  shot: {fileID: 1857920798315110, guid: b52649003557add468f4e9fb732b361f, type: 2}
+  fireRate: 0.5
+  shot: {fileID: 1573528429951036, guid: d69df55df284de04c83ab62d423158d1, type: 2}
   shotSpawn: {fileID: 4419572504754326}
 --- !u!114 &114261487182472014
 MonoBehaviour:
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  xMin: -5.5
-  xMax: 1.5
-  zMin: -4
+  xMin: -0.63
+  xMax: 0.6
+  zMin: -0.53
   zMax: 1.5

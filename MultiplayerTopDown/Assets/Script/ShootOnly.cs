@@ -23,7 +23,7 @@ public class ShootOnly : MonoBehaviour {
 
         if(seconds > fireRate) {
             seconds = 0;
-            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            Instantiate(shot, shotSpawn.position, shot.transform.rotation);
         }
 	}
 }
