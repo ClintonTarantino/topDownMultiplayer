@@ -17,6 +17,8 @@ public class PlayerShip : MonoBehaviour {
 
     public Transform lifeBar;
 
+	public Transform colorShip;
+
     // Use this for initialization
     void Start () {
 		
@@ -48,7 +50,7 @@ public class PlayerShip : MonoBehaviour {
             PhotonNetwork.Instantiate("Explosion", new Vector3(this.transform.position.x, 0.0f, this.transform.position.z), Quaternion.identity, 0);
             PhotonNetwork.Destroy(gameObject);
         }
-        lifeBar = transform.Find("myHealth");
+        lifeBar = transform.Find("myhealth");
         lifeBar.localScale = new Vector3(life / maxLife * 0.1f, 0.01f, 0.01f);
     }
 }

@@ -19,8 +19,11 @@ public class NetworkControl : Photon.MonoBehaviour {
         }   else {
             transform.position = Vector3.Lerp(transform.position, realPosition, 0.1f);
             transform.rotation = Quaternion.Lerp(transform.rotation, realRotation, 0.1f);
+			//Add name onto our ship
+			string PlayerUserName = this.GetComponent<PhotonView>().owner.name;
 
-        }
+			this.GetComponentInChildren<TextMesh>().text = PlayerUserName;
+		}
     }
 
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {

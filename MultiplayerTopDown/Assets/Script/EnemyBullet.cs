@@ -7,7 +7,7 @@ public class EnemyBullet : MonoBehaviour {
     float seconds;
 
 
-    public float damage = 3;
+    public float damage = 10;
     public float speed = 10;
     // Use this for initialization
     void Start () {
