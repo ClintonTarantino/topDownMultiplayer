@@ -12,7 +12,10 @@ public class PlayerShip : MonoBehaviour {
     public float zMin;
     public float zMax;
 
+    public float life = 100;
+    public float maxLife = 100;
 
+    public Transform lifeBar;
 
     // Use this for initialization
     void Start () {
@@ -36,4 +39,16 @@ public class PlayerShip : MonoBehaviour {
             );
 
 	}
+
+    public void gethit (float damage) {
+        if(life > 0) {
+            life -= damage;
+        }
+        if(life <= 0) {
+            PhotonNetwork.Instantiate("Explosion", new Vector3(this.transform.position.x, 0.0f, this.transform.position.z), Quaternion.identity, 0);
+            PhotonNetwork.Destroy(gameObject);
+        }
+        lifeBar = transform.Find("myHealth");
+        lifeBar.localScale = new Vector3(life / maxLife * 0.1f, 0.01f, 0.01f);
+    }
 }

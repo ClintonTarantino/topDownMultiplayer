@@ -24,4 +24,17 @@ public class EnemyBullet : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+
+        Debug.Log("We Hit " + collision.collider.gameObject.name);
+        if (collision.collider.gameObject.GetComponent<PlayerShip>())
+        {
+            collision.collider.gameObject.GetComponent<PlayerShip>().gethit(damage);
+
+
+        }
+        Destroy(gameObject);
+    }
 }
