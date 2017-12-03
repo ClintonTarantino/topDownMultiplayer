@@ -20,10 +20,13 @@ public class EnemyOne : MonoBehaviour {
 
     public Transform lifeBar;
 
+	GameObject temp;
+
 
 	// Use this for initialization
 	void Start () {
         GetComponent<Rigidbody>().rotation = Quaternion.Euler(270.0f, 180.0f, 0.0f);
+		temp = GameObject.Find("ExplodeSound");
     }
 	
 	// Update is called once per frame
@@ -57,7 +60,11 @@ public class EnemyOne : MonoBehaviour {
             life -= getDamage;
             if(life <= 0) {
                PhotonNetwork.Instantiate("Explosion", new Vector3(this.transform.position.x, 0.0f, this.transform.position.z), Quaternion.identity, 0);
-                PhotonNetwork.Destroy(gameObject);
+
+				PhotonNetwork.Instantiate("goldcoin", this.transform.position, this.transform.rotation, 0);
+				temp.GetComponent<AudioSource>().Play();
+
+				PhotonNetwork.Destroy(gameObject);
             }
         }
 

@@ -18,6 +18,7 @@ public class PlayerShip : MonoBehaviour {
     public Transform lifeBar;
 
 	public Transform colorShip;
+	public float money;
 
     // Use this for initialization
     void Start () {
@@ -53,4 +54,9 @@ public class PlayerShip : MonoBehaviour {
         lifeBar = transform.Find("myhealth");
         lifeBar.localScale = new Vector3(life / maxLife * 0.1f, 0.01f, 0.01f);
     }
+
+	public void addMoney(float myMoney)
+	{
+		money += myMoney;
+	}
 }

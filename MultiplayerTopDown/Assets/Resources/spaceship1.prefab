@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 114456392077600494}
   - component: {fileID: 114079224297914076}
   - component: {fileID: 65307916572659308}
+  - component: {fileID: 82344701874975584}
   m_Layer: 0
   m_Name: spaceship1
   m_TagString: Untagged
@@ -390,6 +391,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &82344701874975584
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1913642679315226}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8b4a93788d522b04a91667b015c32771, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 70
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95596627943668652
 Animator:
   serializedVersion: 3
@@ -445,6 +526,7 @@ MonoBehaviour:
   fireRate: 0.5
   shot: {fileID: 1573528429951036, guid: d69df55df284de04c83ab62d423158d1, type: 2}
   shotSpawn: {fileID: 4419572504754326}
+  shootSound: {fileID: 82344701874975584}
 --- !u!114 &114261487182472014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -467,8 +549,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 114456392077600494}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
+  viewIdField: 2
+  instantiationId: 2
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &114456392077600494
@@ -501,3 +583,5 @@ MonoBehaviour:
   life: 100
   maxLife: 100
   lifeBar: {fileID: 4758882630172872}
+  colorShip: {fileID: 4329035953405202}
+  money: 0

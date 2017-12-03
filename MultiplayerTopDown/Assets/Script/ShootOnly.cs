@@ -11,6 +11,8 @@ public class ShootOnly : MonoBehaviour {
 
     public Transform shotSpawn;
 
+	public AudioSource shootSound;
+
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +26,8 @@ public class ShootOnly : MonoBehaviour {
         if(seconds > fireRate) {
             seconds = 0;
             Instantiate(shot, shotSpawn.position, shot.transform.rotation);
+
+			shootSound.Play();
         }
 	}
 }
